@@ -5,7 +5,8 @@ export const ProductSchema = new mongoose.Schema({
   price: { type: Number, required: true },
 });
 
-export interface Product {
+export interface Product extends mongoose.Document {
+  //@types/mongoose package installed cause Product model need to have promise
   id: string;
   title: string;
   description: string;
