@@ -5,12 +5,7 @@ import { ProductsModule } from './products/products.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [
-    ProductsModule,
-    MongooseModule.forRoot(
-      'mongodb+srv://eminoz:Eminemin.07@cluster0.cvbx9.mongodb.net/nestjs?retryWrites=true&w=majority',
-    ),
-  ],
+  imports: [ProductsModule, MongooseModule.forRoot('mongodb_url')],
   controllers: [AppController],
   providers: [AppService],
 })
