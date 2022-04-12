@@ -28,8 +28,9 @@ export class ProductsController {
     return { id: generaedId };
   }
   @Get()
-  getAllProducts() {
-    return this.productService.getProducts();
+  async getAllProducts() {
+    const products = await this.productService.getProducts();
+    return products;
   }
   @Get(':id')
   getProduct(@Param('id') prodId: string) {
