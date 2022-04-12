@@ -14,12 +14,12 @@ export class ProductsController {
   constructor(private readonly productService: ProductsService) {}
 
   @Post()
-  addProduct(
+  async addProduct(
     @Body('title') prodTitle: string,
     @Body('description') prodDesc: string,
-    @Body('price') prodPrice: string,
+    @Body('price') prodPrice: number,
   ) {
-    const generaedId = this.productService.insertProduct(
+    const generaedId = await this.productService.insertProduct(
       prodTitle,
       prodDesc,
       prodPrice,
@@ -40,7 +40,7 @@ export class ProductsController {
     @Param('id') prodId: string,
     @Body('title') prodTitle: string,
     @Body('description') prodDesc: string,
-    @Body('price') prodPrice: string,
+    @Body('price') prodPrice: number,
   ) {
     this.productService.updateProduct(prodId, prodTitle, prodDesc, prodPrice);
     return null;
